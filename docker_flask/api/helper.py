@@ -5,7 +5,7 @@ from datetime import datetime as dt
 
 class Utilities:
     column_names = ['date','slot_id', 'desktop', 'impressions']
-    input_file = 'inputdata.json'
+    input_file = './inputdata.json'
 
 def load_json(json_file):
     with open(json_file) as f:

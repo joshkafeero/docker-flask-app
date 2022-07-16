@@ -25,10 +25,10 @@ class Advertising(db.Model):
     device = db.Column(db.String(14), nullable=True)
     impressions = db.Column(db.Integer, nullable=True)
 
-    def __repr__(self):
-        """Provide helpful representation when printed."""
+    # def __repr__(self):
+    #     """Provide helpful representation when printed."""
 
-        return f'device: {self.device} date: {self.date} impressions: {self.impressions}'
+    #     return f'device: {self.device} date: {self.date} impressions: {self.impressions}'
 
 
 
