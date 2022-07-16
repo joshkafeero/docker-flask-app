@@ -13,9 +13,9 @@ def load_json(json_file):
     return data
 
 def get_date(string_date):
-    date = dt.strptime(string_date, '%d/%m/%Y').date()
+    date = dt.strptime(string_date, '%m/%d/%Y').date()
     return date
-    
+
 def build_select_books_query(author, id, published, to_filter):
     query = "SELECT * FROM books WHERE"
     if id:
