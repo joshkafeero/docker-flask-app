@@ -1,6 +1,6 @@
 """Utility file to seed ratings database from MovieLens data in seed_data/"""
 
-from sqlalchemy import func
+# from sqlalchemy import func
 from model import Advertising
 import pdb
 from helper import load_json , Utilities , get_date
