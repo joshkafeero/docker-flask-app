@@ -24,11 +24,9 @@ def all_data():
 @app.route('/alldata2', methods=['GET'])
 def all_data2():
     conn = sqlite.connect('../api/advertisings.db')
-    # conn.row_factory = dict_factory
     cur = conn.cursor()
-    all_books = cur.execute("SELECT * FROM advertisings;").fetchall()
-    # all_books = model.Advertising.query.all()
-    return jsonify(all_books) 
+    all_data = cur.execute("SELECT * FROM advertisings;").fetchall()
+    return jsonify(all_data) 
 
 # def dict_factory(cursor, row):
 #     d = {}
