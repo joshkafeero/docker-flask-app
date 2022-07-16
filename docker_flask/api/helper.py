@@ -5,7 +5,7 @@ from datetime import datetime as dt
 
 class Utilities:
     column_names = ['date','slot_id', 'desktop', 'impressions']
-    input_file = './inputdata.json'
+    input_file = 'api/inputdata.json'
 
 def load_json(json_file):
     with open(json_file) as f:
@@ -15,6 +15,7 @@ def load_json(json_file):
 def get_date(string_date):
     date = dt.strptime(string_date, '%d/%m/%Y').date()
     return date
+    
 def build_select_books_query(author, id, published, to_filter):
     query = "SELECT * FROM books WHERE"
     if id:

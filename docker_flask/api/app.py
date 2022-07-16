@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import sqlite3 as sqlite
 import sys
-import model
+# import model
 # from seed import seed_db
 import os
 app = Flask(__name__)
@@ -39,15 +39,7 @@ def all_data2():
 # def page_not_found(e):
 #     return render_template('404.html'), 404
 
-# A route to return all of the available entries in our catalog.
-@app.route('/api/v1/resources/books/all', methods=['GET'])
-def api_all():
-    conn = sqlite.connect('../data/books.db')
-    conn.row_factory = dict_factory
-    cur = conn.cursor()
-    all_books = cur.execute("SELECT * FROM books;").fetchall()
-    # all_books = model.Advertising.query.all()
-    return jsonify(all_books)
+
 
 
 if __name__ == '__main__':
