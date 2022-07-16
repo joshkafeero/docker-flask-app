@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template
+from flask_negotiate import consumes, produces
 import sqlite3 as sqlite
 import sys
 # import model
@@ -26,6 +27,28 @@ def all_data2():
     conn = sqlite.connect('../api/advertisings.db')
     cur = conn.cursor()
     all_data = cur.execute("SELECT * FROM advertisings;").fetchall()
+    return jsonify(all_data) 
+
+
+@app.route('/request_data', methods=['POST'])
+@consumes('application/json')
+@produces('application/json')
+def request_data():
+    json_payload = request.json
+    
+    if ( (json_payload['filter'] == None) or
+         (json_payload['device'] == None) or
+         (json_payload['start_date'] == None) or
+         (json_payload['end_date'] == None) or
+         (json_payload['group_by'] == None) ) :
+        
+        return "error"
+    else:
+        sql_query = build_advert_sql_query(json_payload)
+        
+    conn = sqlite.connect('../api/advertisings.db')
+    cur = conn.cursor()
+    all_data = cur.execute(sql_query).fetchall()
     return jsonify(all_data) 
 
 
