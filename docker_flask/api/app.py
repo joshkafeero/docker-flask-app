@@ -28,14 +28,12 @@ def all_data2():
     all_data = cur.execute("SELECT * FROM advertisings;").fetchall()
     return jsonify(all_data) 
 
-# def dict_factory(cursor, row):
-#     d = {}
-#     for idx, col in enumerate(cursor.description):
-#         d[col[0]] = row[idx]
-#     return d  
-# @app.errorhandler(404)
-# def page_not_found(e):
-#     return render_template('404.html'), 404
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return """<h1> Ohh no :(</h1>
+    <h3> We dont have that route please check your entry</h3>
+    """
 
 
 
