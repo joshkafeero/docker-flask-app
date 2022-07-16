@@ -4,7 +4,11 @@ import sys
 import os
 app = Flask(__name__)
 
-
+app.route('/alldata', methods=['GET'])
+def all_data():
+    results  = Advertising.query.all()
+    return jsonify(results)
+    
 
 def dict_factory(cursor, row):
     d = {}
