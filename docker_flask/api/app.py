@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import sqlite3 as sqlite
 import sys
 import model
-from seed import seed_db
+# from seed import seed_db
 import os
 app = Flask(__name__)
 
