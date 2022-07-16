@@ -2,11 +2,12 @@ from flask import Flask, request, jsonify, render_template
 import sqlite3 as sqlite
 import sys
 import model
+from seed import seed_db
 import os
 app = Flask(__name__)
 
 
-
+# seed_db()
 @app.route('/', methods=['GET'])
 def home():
     return """<h1>ML project</h1>
@@ -22,7 +23,7 @@ def all_data():
 
 @app.route('/alldata2', methods=['GET'])
 def all_data2():
-    conn = sqlite.connect('../advertisings.db')
+    conn = sqlite.connect('../api/advertisings.db')
     # conn.row_factory = dict_factory
     cur = conn.cursor()
     all_books = cur.execute("SELECT * FROM advertisings;").fetchall()
