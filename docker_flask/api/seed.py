@@ -23,8 +23,8 @@ def seed_db():
     #get data 
     data = load_json(Utilities.input_file)
     for record in data:
-        str_date, slot_id = data['date'], data['slot_id']
-        device, impressions = data['device'], data['impressions']
+        str_date, slot_id = record['date'], record['slot_id']
+        device, impressions = record['device'], record['impressions']
         date = get_date(str_date)
 
         # insert data
