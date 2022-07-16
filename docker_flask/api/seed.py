@@ -28,7 +28,7 @@ def seed_db():
         date = get_date(str_date)
 
         # insert data
-        advertising = Advertising(date = date, slot_it= slot_id,impressions =int(impressions)
+        advertising = Advertising(date = date, slot_id= slot_id,impressions =int(impressions)
         , device = device)
 
         # We need to add to the session or it won't ever be stored
